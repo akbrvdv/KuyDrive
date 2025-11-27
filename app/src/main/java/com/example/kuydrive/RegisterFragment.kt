@@ -18,25 +18,17 @@ class RegisterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        // Logika Link Teks Bawah ("Login di sini")
         val tvLogin = view.findViewById<TextView>(R.id.tvLoginLink)
         tvLogin.setOnClickListener {
             parentFragmentManager.popBackStack()
         }
 
-        // --- TAMBAHAN BARU ---
-        // Logika Tombol Panah Back di Header Kuning
         val btnBack = view.findViewById<View>(R.id.btnBack) // Bisa ImageView atau View
         btnBack.setOnClickListener {
-            // Fungsinya sama, kembali ke halaman sebelumnya
             parentFragmentManager.popBackStack()
         }
 
-        // Logika Tombol Daftar (Nanti diimplementasikan)
         // val btnRegister = view.findViewById<Button>(R.id.btnRegister)
     }
 
-        // --- Logika Tombol Daftar (Nanti kita isi) ---
     }
-}
