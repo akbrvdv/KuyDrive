@@ -1,4 +1,4 @@
-package com.example.kuydrive
+package com.kelompok6.kuydrive
 
 import android.os.Bundle
 import android.view.LayoutInflater
