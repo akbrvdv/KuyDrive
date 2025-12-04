@@ -6,31 +6,32 @@ import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import android.content.Context
+// PENTING: Import ini wajib ada agar tidak crash
+import androidx.cardview.widget.CardView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
         // Mengatur padding agar UI tidak tertutup system bar
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0)
             insets
         }
 
         setupClickListeners()
+        setupBottomNavigation()
     }
 
     private fun setupClickListeners() {
         // --- Bagian Atas (Search & Notif) ---
-
+        // btnSearch di XML baru adalah LinearLayout, jadi ini BENAR
         val btnSearch = findViewById<LinearLayout>(R.id.btnSearch)
         btnSearch.setOnClickListener {
             Toast.makeText(this, "Fitur Pencarian diklik", Toast.LENGTH_SHORT).show()
@@ -42,51 +43,45 @@ class MainActivity : AppCompatActivity() {
         }
 
         // --- Fitur Utama (KuyRide) ---
-
-        val btnKuyRide = findViewById<LinearLayout>(R.id.btnKuyRide)
+        // PERBAIKAN UTAMA DI SINI:
+        // Kita ganti LinearLayout menjadi CardView karena desainnya sudah berubah jadi Kapsul/CardView
+        val btnKuyRide = findViewById<CardView>(R.id.btnKuyRide)
         btnKuyRide.setOnClickListener {
-            Toast.makeText(this, "Membuka layanan KuyRide...", Toast.LENGTH_SHORT).show()
-            // Contoh Intent untuk pindah ke Activity lain (misal MapsActivity):
-            // val intent = Intent(this, MapsActivity::class.java)
-            // startActivity(intent)
+            val intent = Intent(this, OrderMapActivity::class.java)
+            startActivity(intent)
         }
 
         // --- Voucher Promo ---
-
         val btnVoucher1 = findViewById<TextView>(R.id.btnVoucher1)
         btnVoucher1.setOnClickListener {
             Toast.makeText(this, "Voucher 20% berhasil diklaim!", Toast.LENGTH_SHORT).show()
         }
+    }
 
-        // --- Navigasi Bawah ---
+    private fun setupBottomNavigation() {
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNavigation)
 
-        val navHome = findViewById<LinearLayout>(R.id.navHome)
-        navHome.setOnClickListener {
-            // Kita sudah di halaman Home, mungkin scroll ke atas atau refresh
-            Toast.makeText(this, "Anda sudah di Beranda", Toast.LENGTH_SHORT).show()
-        }
+        // Set item yang aktif saat ini (Home)
+        bottomNav.selectedItemId = R.id.nav_home
 
-        val navOrders = findViewById<LinearLayout>(R.id.navOrders)
-        navOrders.setOnClickListener {
-            Toast.makeText(this, "Menu Pesanan", Toast.LENGTH_SHORT).show()
-            // Logika pindah halaman:
-            // val intent = Intent(this, OrdersActivity::class.java)
-            // startActivity(intent)
-        }
-
-        val navAccount = findViewById<LinearLayout>(R.id.navAccount)
-        navAccount.setOnClickListener {
-            // Hapus sesi login (Opsional)
-            val sessionPref = getSharedPreferences("UserSession", Context.MODE_PRIVATE)
-            sessionPref.edit().clear().apply()
-
-            Toast.makeText(this, "Logout Berhasil", Toast.LENGTH_SHORT).show()
-
-            // Kembali ke halaman Login (AuthActivity)
-            val intent = Intent(this, AuthActivity::class.java)
-            // Membersihkan tumpukan activity agar tombol back tidak kembali ke home
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(intent)
+        bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_home -> true // Sudah di home
+                R.id.nav_orders -> {
+                    // Pastikan HistoryActivity.kt sudah dibuat agar ini jalan
+                    val intent = Intent(this, HistoryActivity::class.java)
+                    startActivity(intent)
+                    overridePendingTransition(0, 0)
+                    true
+                }
+                R.id.nav_account -> {
+                    val intent = Intent(this, AccountActivity::class.java)
+                    startActivity(intent)
+                    overridePendingTransition(0, 0)
+                    true
+                }
+                else -> false
+            }
         }
     }
 }

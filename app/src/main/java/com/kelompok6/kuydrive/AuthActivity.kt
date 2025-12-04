@@ -1,4 +1,4 @@
-package com.kelompok6.kuydrive // Sesuaikan dengan nama package-mu
+package com.kelompok6.kuydrive
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

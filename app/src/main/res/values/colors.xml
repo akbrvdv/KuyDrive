@@ -12,4 +12,7 @@
     <color name="bg_input">#F5F5F5</color>
     <color name="kuy_yellow">#FFC107</color>
     <color name="kuy_grey_text">#757575</color>
+    <color name="kuy_primary">#FFC107</color> <color name="kuy_primary_dark">#FFA000</color>
+    <color name="bg_light_gray">#F5F6F8</color> <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
 </resources>
