@@ -27,11 +27,11 @@
             android:layout_weight="1"
             android:background="@drawable/bg_search_input"
             android:gravity="center_vertical"
-            android:paddingHorizontal="12dp">
+            android:paddingHorizontal="16dp">
 
             <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 app:tint="@color/gold_end"
                 android:src="@drawable/ic_search"
                 android:contentDescription="Search Icon"/>
@@ -45,13 +45,25 @@
                 android:textSize="14sp"/>
         </LinearLayout>
 
-        <ImageView
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:layout_marginStart="16dp"
-            app:tint="@color/text_dark"
-            android:src="@drawable/ic_notification"
-            android:contentDescription="Notification Icon"/>
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp">
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                app:tint="@color/text_dark"
+                android:src="@drawable/ic_notification"
+                android:contentDescription="Notification Icon"/>
+            <View
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:background="@drawable/bg_circle_green"
+                android:backgroundTint="#FF0000"
+                android:layout_gravity="top|end"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="2dp"/>
+        </FrameLayout>
     </LinearLayout>
 
     <ScrollView
@@ -74,12 +86,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="6dp">
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/kuy_yellow">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/bg_card_gradient"
                     android:orientation="vertical"
                     android:padding="24dp">
 
@@ -89,7 +101,7 @@
                         android:text="Diskon 20%"
                         android:textColor="@color/text_dark"
                         android:textStyle="bold"
-                        android:textSize="26sp"/>
+                        android:textSize="22sp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -104,11 +116,11 @@
                         android:layout_height="wrap_content"
                         android:text="Ambil Vouchermu"
                         android:background="@drawable/bg_btn_white"
-                        android:paddingHorizontal="24dp"
-                        android:paddingVertical="10dp"
+                        android:paddingHorizontal="20dp"
+                        android:paddingVertical="8dp"
                         android:textStyle="bold"
-                        android:textSize="14sp"
-                        android:layout_marginTop="24dp"
+                        android:textSize="13sp"
+                        android:layout_marginTop="20dp"
                         android:textColor="@color/text_dark"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -118,12 +130,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="6dp">
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/kuy_yellow">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/bg_card_gradient"
                     android:orientation="vertical"
                     android:padding="24dp">
 
@@ -133,12 +145,12 @@
                         android:text="Diskon 50%"
                         android:textColor="@color/text_dark"
                         android:textStyle="bold"
-                        android:textSize="26sp"/>
+                        android:textSize="22sp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Perjalanan murah dan hemat!"
+                        android:text="Perjalanan hemat!"
                         android:textColor="#333"
                         android:layout_marginTop="4dp"
                         android:textSize="14sp"/>
@@ -148,11 +160,11 @@
                         android:layout_height="wrap_content"
                         android:text="Ambil Vouchermu"
                         android:background="@drawable/bg_btn_white"
-                        android:paddingHorizontal="24dp"
-                        android:paddingVertical="10dp"
+                        android:paddingHorizontal="20dp"
+                        android:paddingVertical="8dp"
                         android:textStyle="bold"
-                        android:textSize="14sp"
-                        android:layout_marginTop="24dp"
+                        android:textSize="13sp"
+                        android:layout_marginTop="20dp"
                         android:textColor="@color/text_dark"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -162,12 +174,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="6dp">
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/kuy_yellow">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/bg_card_gradient"
                     android:orientation="vertical"
                     android:padding="24dp">
 
@@ -177,7 +189,7 @@
                         android:text="Diskon 70%"
                         android:textColor="@color/text_dark"
                         android:textStyle="bold"
-                        android:textSize="26sp"/>
+                        android:textSize="22sp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -192,11 +204,11 @@
                         android:layout_height="wrap_content"
                         android:text="Ambil Vouchermu"
                         android:background="@drawable/bg_btn_white"
-                        android:paddingHorizontal="24dp"
-                        android:paddingVertical="10dp"
+                        android:paddingHorizontal="20dp"
+                        android:paddingVertical="8dp"
                         android:textStyle="bold"
-                        android:textSize="14sp"
-                        android:layout_marginTop="24dp"
+                        android:textSize="13sp"
+                        android:layout_marginTop="20dp"
                         android:textColor="@color/text_dark"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -215,15 +227,20 @@
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="16dp">
 
-        <ImageView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:elevation="6dp"
-            android:background="@drawable/bg_circle_green"
-            android:src="@drawable/ic_kuyride_logo_new"
-            android:padding="14dp"
-            app:tint="@color/white"
-            android:contentDescription="KuyRide Logo"/>
+        <androidx.cardview.widget.CardView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:cardCornerRadius="16dp"
+            app:cardBackgroundColor="@color/kuy_green"
+            app:cardElevation="6dp">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_motorcycle"
+                android:padding="12dp"
+                app:tint="@color/white"
+                android:contentDescription="KuyRide Logo"/>
+        </androidx.cardview.widget.CardView>
 
         <TextView
             android:layout_width="wrap_content"
@@ -252,8 +269,8 @@
             android:gravity="center"
             android:orientation="vertical">
             <ImageView
-                android:layout_width="26dp"
-                android:layout_height="26dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 app:tint="@color/gold_end"
                 android:src="@drawable/ic_home"
                 android:contentDescription="Home"/>
@@ -261,9 +278,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Beranda"
-                android:textSize="11sp"
+                android:textSize="10sp"
                 android:textStyle="bold"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="4dp"
                 android:textColor="@color/gold_end"/>
         </LinearLayout>
 
@@ -274,8 +291,8 @@
             android:gravity="center"
             android:orientation="vertical">
             <ImageView
-                android:layout_width="26dp"
-                android:layout_height="26dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 app:tint="@color/text_gray"
                 android:src="@drawable/ic_orders"
                 android:contentDescription="Orders"/>
@@ -283,8 +300,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Pesanan"
-                android:textSize="11sp"
-                android:layout_marginTop="2dp"
+                android:textSize="10sp"
+                android:layout_marginTop="4dp"
                 android:textColor="@color/text_gray"/>
         </LinearLayout>
 
@@ -295,8 +312,29 @@
             android:gravity="center"
             android:orientation="vertical">
             <ImageView
-                android:layout_width="26dp"
-                android:layout_height="26dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                app:tint="@color/text_gray"
+                android:src="@drawable/ic_chat"
+                android:contentDescription="Chatbot"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chatbot"
+                android:textSize="10sp"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/text_gray"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 app:tint="@color/text_gray"
                 android:src="@drawable/ic_account"
                 android:contentDescription="Account"/>
@@ -304,8 +342,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Akun"
-                android:textSize="11sp"
-                android:layout_marginTop="2dp"
+                android:textSize="10sp"
+                android:layout_marginTop="4dp"
                 android:textColor="@color/text_gray"/>
         </LinearLayout>
 

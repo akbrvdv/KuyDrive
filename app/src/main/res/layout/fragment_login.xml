@@ -13,7 +13,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="60dp"
-        android:src="@android:drawable/ic_menu_bicycles"
+        android:src="@drawable/ic_motorcycle"
         app:tint="@color/kuy_yellow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
