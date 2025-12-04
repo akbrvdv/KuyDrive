@@ -4,7 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.CheckBox
+import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 
 class RegisterFragment : Fragment() {
@@ -18,17 +22,39 @@ class RegisterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // Inisialisasi View
+        val etName = view.findViewById<EditText>(R.id.etName)
+        val etEmail = view.findViewById<EditText>(R.id.etEmailReg)
+        val etPhone = view.findViewById<EditText>(R.id.etPhone)
+        val etPass = view.findViewById<EditText>(R.id.etPassReg)
+        val cbTerms = view.findViewById<CheckBox>(R.id.cbTerms)
+        val btnRegister = view.findViewById<Button>(R.id.btnRegister)
         val tvLogin = view.findViewById<TextView>(R.id.tvLoginLink)
-        tvLogin.setOnClickListener {
+        val btnBack = view.findViewById<View>(R.id.btnBack)
+
+        // LOGIKA REGISTER DUMMY
+        btnRegister.setOnClickListener {
+            // Kita tetap validasi agar terlihat 'real'
+            if (etName.text.isEmpty() || etEmail.text.isEmpty() || etPass.text.isEmpty()) {
+                Toast.makeText(requireContext(), "Data tidak boleh kosong!", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            if (!cbTerms.isChecked) {
+                Toast.makeText(requireContext(), "Setujui syarat & ketentuan dulu.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            // Pura-pura sukses (Tanpa simpan data)
+            Toast.makeText(requireContext(), "Akun berhasil dibuat! Silakan Login.", Toast.LENGTH_LONG).show()
+
+            // Kembali ke halaman Login otomatis
             parentFragmentManager.popBackStack()
         }
 
-        val btnBack = view.findViewById<View>(R.id.btnBack) // Bisa ImageView atau View
-        btnBack.setOnClickListener {
-            parentFragmentManager.popBackStack()
-        }
-
-        // val btnRegister = view.findViewById<Button>(R.id.btnRegister)
+        // Navigasi Balik
+        tvLogin.setOnClickListener { parentFragmentManager.popBackStack() }
+        btnBack.setOnClickListener { parentFragmentManager.popBackStack() }
     }
-
-    }
+}

@@ -10,6 +10,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import android.content.Context
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -75,9 +76,16 @@ class MainActivity : AppCompatActivity() {
 
         val navAccount = findViewById<LinearLayout>(R.id.navAccount)
         navAccount.setOnClickListener {
-            Toast.makeText(this, "Menu Akun", Toast.LENGTH_SHORT).show()
-            // Contoh: Kembali ke halaman Login/Auth untuk logout
+            // Hapus sesi login (Opsional)
+            val sessionPref = getSharedPreferences("UserSession", Context.MODE_PRIVATE)
+            sessionPref.edit().clear().apply()
+
+            Toast.makeText(this, "Logout Berhasil", Toast.LENGTH_SHORT).show()
+
+            // Kembali ke halaman Login (AuthActivity)
             val intent = Intent(this, AuthActivity::class.java)
+            // Membersihkan tumpukan activity agar tombol back tidak kembali ke home
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
         }
     }
