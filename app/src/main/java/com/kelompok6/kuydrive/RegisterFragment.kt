@@ -23,7 +23,6 @@ class RegisterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Inisialisasi View
         val etName = view.findViewById<EditText>(R.id.etName)
         val etEmail = view.findViewById<EditText>(R.id.etEmailReg)
         val etPhone = view.findViewById<EditText>(R.id.etPhone)
@@ -33,9 +32,7 @@ class RegisterFragment : Fragment() {
         val tvLogin = view.findViewById<TextView>(R.id.tvLoginLink)
         val btnBack = view.findViewById<View>(R.id.btnBack)
 
-        // LOGIKA REGISTER DUMMY
         btnRegister.setOnClickListener {
-            // Kita tetap validasi agar terlihat 'real'
             if (etName.text.isEmpty() || etEmail.text.isEmpty() || etPass.text.isEmpty()) {
                 Toast.makeText(requireContext(), "Data tidak boleh kosong!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -46,14 +43,11 @@ class RegisterFragment : Fragment() {
                 return@setOnClickListener
             }
 
-            // Pura-pura sukses (Tanpa simpan data)
             Toast.makeText(requireContext(), "Akun berhasil dibuat! Silakan Login.", Toast.LENGTH_LONG).show()
 
-            // Kembali ke halaman Login otomatis
             parentFragmentManager.popBackStack()
         }
 
-        // Navigasi Balik
         tvLogin.setOnClickListener { parentFragmentManager.popBackStack() }
         btnBack.setOnClickListener { parentFragmentManager.popBackStack() }
     }
