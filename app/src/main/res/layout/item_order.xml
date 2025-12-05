@@ -15,7 +15,6 @@
         android:padding="16dp"
         android:gravity="center_vertical">
 
-        <!-- Icon / tipe layanan -->
         <ImageView
             android:id="@+id/ivServiceIcon"
             android:layout_width="32dp"
@@ -49,7 +48,6 @@
                 android:textColor="#777777"/>
         </LinearLayout>
 
-        <!-- Tombol kecil "Lacak" / status -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSecondary"
             android:layout_width="wrap_content"
