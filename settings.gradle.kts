@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Kuydrive"
+rootProject.name = "KuyDrive"
 include(":app")
  

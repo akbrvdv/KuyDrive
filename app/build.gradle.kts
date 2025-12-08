@@ -4,11 +4,13 @@ plugins {
 }
 
 android {
-    namespace = "com.example.kuydrive"
-    compileSdk = 36
+    namespace = "com.kelompok6.kuydrive"
+    compileSdk {
+        version = release(36)
+    }
 
     defaultConfig {
-        applicationId = "com.example.kuydrive"
+        applicationId = "com.kelompok6.kuydrive"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
@@ -36,7 +38,6 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
