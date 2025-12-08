@@ -13,7 +13,7 @@
         android:theme="@style/Theme.KuyDrive">
 
         <activity
-            android:name=".AuthActivity"
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,15 +21,12 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".RegisterActivity" android:exported="false" />
+
         <activity android:name=".MainActivity" android:exported="false" />
-
         <activity android:name=".AccountActivity" android:exported="false" />
-
         <activity android:name=".HistoryActivity" android:exported="false" />
-
-        <activity android:name=".OrderMapActivity" android:exported="false"
-            tools:ignore="Instantiatable" />
-
+        <activity android:name=".OrderMapActivity" android:exported="false" tools:ignore="Instantiatable" />
         <activity android:name=".PaymentMethodActivity" android:exported="false" />
 
     </application>
