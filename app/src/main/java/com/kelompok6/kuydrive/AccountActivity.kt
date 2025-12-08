@@ -25,17 +25,18 @@ class AccountActivity : AppCompatActivity() {
 
         findViewById<TextView>(R.id.tvUserName).text = name
         findViewById<TextView>(R.id.tvUserEmail).text = email
-
         findViewById<TextView>(R.id.tvBalance).text = "Rp 150.000"
     }
 
     private fun setupLogoutButton() {
         val btnLogout = findViewById<MaterialButton>(R.id.btnLogout)
         btnLogout.setOnClickListener {
+            // 1. Hapus data sesi (Login)
             val sessionPref = getSharedPreferences("UserSession", Context.MODE_PRIVATE)
             sessionPref.edit().clear().apply()
 
-            val intent = Intent(this, AuthActivity::class.java)
+            // 2. Pindah ke halaman LOGIN (Bukan AuthActivity lagi)
+            val intent = Intent(this, LoginActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
             finish()
@@ -44,7 +45,6 @@ class AccountActivity : AppCompatActivity() {
 
     private fun setupBottomNavigation() {
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNavigation)
-
         bottomNav.selectedItemId = R.id.nav_account
 
         bottomNav.setOnItemSelectedListener { item ->
