@@ -8,6 +8,7 @@
     android:gravity="center">
 
     <ImageView
+        android:id="@+id/ivDialogLogo"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:src="@drawable/icon_motor_baru"
@@ -49,9 +50,9 @@
         android:numStars="5"
         android:stepSize="1"
         android:rating="5"
+        android:isIndicator="false"
         android:layout_marginTop="16dp"
         android:progressTint="@color/kuy_yellow"/>
-
     <Button
         android:id="@+id/btnSubmitRating"
         android:layout_width="match_parent"
