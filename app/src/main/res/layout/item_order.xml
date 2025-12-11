@@ -4,58 +4,99 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="12dp"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="2dp">
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginVertical="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="2dp"
+    app:strokeColor="#F0F0F0"
+    app:strokeWidth="1dp"
+    app:cardBackgroundColor="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp"
-        android:gravity="center_vertical">
-
-        <ImageView
-            android:id="@+id/ivServiceIcon"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:src="@drawable/icon_motor_baru"
-            android:background="@drawable/bg_circle_green"
-            android:padding="4dp"/>
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:layout_marginStart="12dp">
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
             <TextView
-                android:id="@+id/tvOrderTitle"
-                android:layout_width="wrap_content"
+                android:id="@+id/tvService"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Menuju Lokasi Penjemputan"
+                android:layout_weight="1"
+                android:text="KuyRide"
+                android:textColor="@color/kuy_green"
                 android:textStyle="bold"
-                android:textSize="14sp"/>
+                android:textSize="16sp"/>
 
             <TextView
-                android:id="@+id/tvOrderSub"
+                android:id="@+id/tvStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="Driver: Budi Santoso (B 1234 XYZ)"
+                android:text="Selesai"
+                android:textColor="@color/kuy_green"
                 android:textSize="12sp"
-                android:textColor="#777777"/>
+                android:background="#E8F5E9"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="2dp"/>
         </LinearLayout>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSecondary"
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#F0F0F0"
+            android:layout_marginVertical="12dp"/>
+
+        <TextView
+            android:id="@+id/tvPickUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lacak"
-            android:textAllCaps="false"
-            android:textSize="12sp"
-            android:backgroundTint="#FFCC00"/>
-    </LinearLayout>
+            android:text="Dari: -"
+            android:textColor="#757575"
+            android:textSize="14sp"/>
 
+        <TextView
+            android:id="@+id/tvDestination"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Ke: -"
+            android:textColor="#757575"
+            android:textSize="14sp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#F0F0F0"
+            android:layout_marginVertical="12dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="-"
+                android:textColor="#9E9E9E"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/tvPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rp 0"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="14sp"/>
+        </LinearLayout>
+    </LinearLayout>
 </com.google.android.material.card.MaterialCardView>
