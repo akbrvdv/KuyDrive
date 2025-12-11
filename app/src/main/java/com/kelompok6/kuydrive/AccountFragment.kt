@@ -1,4 +1,3 @@
-// File: app/src/main/java/com/kelompok6/kuydrive/AccountFragment.kt
 package com.kelompok6.kuydrive
 
 import android.content.Context
@@ -23,13 +22,10 @@ class AccountFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Setup Logout
         view.findViewById<MaterialButton>(R.id.btnLogout)?.setOnClickListener {
-            // Hapus session
             val prefs = activity?.getSharedPreferences("UserSession", Context.MODE_PRIVATE)
             prefs?.edit()?.clear()?.apply()
 
-            // Pindah ke Login
             val intent = Intent(activity, LoginActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
