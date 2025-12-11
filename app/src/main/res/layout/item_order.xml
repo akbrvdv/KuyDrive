@@ -56,7 +56,7 @@
             android:id="@+id/tvPickUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dari: -"
+            android:text="Dari: Politeknik Negeri Madiun"
             android:textColor="#757575"
             android:textSize="14sp"/>
 
@@ -65,7 +65,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Ke: -"
+            android:text="Ke: Stasiun Madiun"
             android:textColor="#757575"
             android:textSize="14sp"/>
 
@@ -93,7 +93,7 @@
                 android:id="@+id/tvPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Rp 0"
+                android:text="Rp 50.000"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:textSize="14sp"/>
