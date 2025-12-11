@@ -9,41 +9,36 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class LoginActivity : AppCompatActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login) // Pastikan nama layout sesuai
+        setContentView(R.layout.activity_login)
 
         val etEmail = findViewById<EditText>(R.id.etEmail)
         val etPassword = findViewById<EditText>(R.id.etPassword)
         val btnLogin = findViewById<Button>(R.id.btnLogin)
         val tvRegister = findViewById<TextView>(R.id.tvRegisterLink)
 
-        // Pindah ke Halaman Register
+        // di klik pindah register
         tvRegister.setOnClickListener {
-            val intent = Intent(this, RegisterActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, RegisterActivity::class.java))
         }
 
         btnLogin.setOnClickListener {
-            val emailInput = etEmail.text.toString()
-            val passwordInput = etPassword.text.toString()
+            val email = etEmail.text.toString()
+            val password = etPassword.text.toString()
 
-            if (emailInput.isEmpty() || passwordInput.isEmpty()) {
-                Toast.makeText(this, "Isi email dan password dulu!", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
+            if (email.isNotEmpty() && password.isNotEmpty()) {
 
-            // Logika Login Sederhana
-            if (emailInput == "admin@gmail.com" && passwordInput == "12345") {
-                Toast.makeText(this, "Login Berhasil! Halo Admin.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Login Berhasil! Selamat datang.", Toast.LENGTH_SHORT).show()
 
-                // Pindah ke MainActivity
+                // pindah main
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
-                finish() // Menutup LoginActivity agar tidak bisa kembali saat ditekan Back
+
+                // biar user gbisa kembali ke login pakai tombol back
+                finish()
             } else {
-                Toast.makeText(this, "Email atau Password Salah!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Email dan Password harus diisi!", Toast.LENGTH_SHORT).show()
             }
         }
     }

@@ -13,7 +13,7 @@ class RegisterActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register) // Pastikan nama layout sesuai
+        setContentView(R.layout.activity_register)
 
         val etName = findViewById<EditText>(R.id.etName)
         val etEmail = findViewById<EditText>(R.id.etEmailReg)
@@ -36,11 +36,9 @@ class RegisterActivity : AppCompatActivity() {
 
             Toast.makeText(this, "Akun berhasil dibuat! Silakan Login.", Toast.LENGTH_LONG).show()
 
-            // Kembali ke halaman Login (menutup activity ini)
             finish()
         }
 
-        // Tombol login & Back fungsinya sama: menutup halaman register
         tvLogin.setOnClickListener { finish() }
         btnBack.setOnClickListener { finish() }
     }
