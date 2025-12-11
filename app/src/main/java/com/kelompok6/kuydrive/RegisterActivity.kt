@@ -17,6 +17,7 @@ class RegisterActivity : AppCompatActivity() {
 
         val etName = findViewById<EditText>(R.id.etName)
         val etEmail = findViewById<EditText>(R.id.etEmailReg)
+        val etPhone = findViewById<EditText>(R.id.etPhone)
         val etPass = findViewById<EditText>(R.id.etPassReg)
         val cbTerms = findViewById<CheckBox>(R.id.cbTerms)
         val btnRegister = findViewById<Button>(R.id.btnRegister)
@@ -24,7 +25,7 @@ class RegisterActivity : AppCompatActivity() {
         val btnBack = findViewById<View>(R.id.btnBack)
 
         btnRegister.setOnClickListener {
-            if (etName.text.isEmpty() || etEmail.text.isEmpty() || etPass.text.isEmpty()) {
+            if (etName.text.isEmpty() || etEmail.text.isEmpty() || etPass.text.isEmpty() || etPhone.text.isEmpty()) {
                 Toast.makeText(this, "Data tidak boleh kosong!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
