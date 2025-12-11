@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="MAP PLACEHOLDER"
+            android:text="MAP AREA (Google Maps)"
             android:textColor="#888888"
             android:textStyle="bold" />
     </FrameLayout>
@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         app:cardCornerRadius="24dp"
-        app:cardElevation="4dp"
+        app:cardElevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -56,7 +56,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="20dp">
+            android:padding="24dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -66,18 +66,19 @@
 
                 <ImageView
                     android:id="@+id/ivStatusIllustration"
-                    android:layout_width="72dp"
-                    android:layout_height="72dp"
-                    android:src="@drawable/baseline_emergency_share_24"
-                    android:layout_marginBottom="12dp"/>
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/icon_motor_baru"
+                    android:layout_marginBottom="12dp"
+                    app:tint="@color/kuy_yellow"/>
 
                 <TextView
                     android:id="@+id/tvStatusTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Mencari Driver Terdekat..."
+                    android:text="Konfirmasi Pesanan"
                     android:textStyle="bold"
-                    android:textSize="16sp"
+                    android:textSize="18sp"
                     android:gravity="center"/>
 
                 <TextView
@@ -85,33 +86,54 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Pesananmu untuk"
-                    android:textSize="13sp"
+                    android:text="Pastikan lokasi jemput sudah benar"
+                    android:textSize="14sp"
                     android:textColor="#777777"/>
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#EEEEEE"
+                android:layout_marginVertical="16dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="16dp"
                 android:gravity="center_vertical">
 
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/icon_motor_baru"
-                    app:tint="#F44336" />
-
-                <TextView
-                    android:id="@+id/tvDestination"
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginStart="8dp"
-                    android:text="Stasiun Madiun"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tujuan:"
+                        android:textSize="12sp"
+                        android:textColor="#9E9E9E"/>
+
+                    <TextView
+                        android:id="@+id/tvDestination"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="-"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rp 12.000"
                     android:textStyle="bold"
-                    android:textSize="14sp"/>
+                    android:textSize="20sp"
+                    android:textColor="@color/kuy_green"/>
             </LinearLayout>
 
             <LinearLayout
@@ -119,32 +141,33 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="24dp">
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnChat"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="56dp"
                     android:text="Chat"
-                    android:textAllCaps="false"
+                    android:layout_marginEnd="8dp"
                     android:backgroundTint="#FFCC00"
                     android:textColor="@android:color/black"
-                    android:visibility="gone"/>
+                    android:visibility="gone"
+                    app:cornerRadius="12dp"/>
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnCancelOrder"
+                    android:id="@+id/btnAction"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="56dp"
                     android:layout_weight="1"
-                    android:layout_marginStart="12dp"
-                    android:text="Batalkan"
+                    android:text="Pesan Sekarang"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
                     android:textAllCaps="false"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:textColor="#F44336"
-                    app:strokeColor="#F44336"
-                    app:strokeWidth="1dp"/>
+                    android:backgroundTint="@color/kuy_yellow"
+                    android:textColor="@color/black"
+                    app:cornerRadius="12dp"/>
             </LinearLayout>
+
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
