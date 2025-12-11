@@ -31,10 +31,6 @@ class MainActivity : AppCompatActivity() {
                     }
                     true
                 }
-                R.id.nav_chat -> {
-                    Toast.makeText(this, "Fitur Chat segera hadir!", Toast.LENGTH_SHORT).show()
-                    false
-                }
                 R.id.nav_account -> {
                     loadFragment(AccountFragment())
                     true
