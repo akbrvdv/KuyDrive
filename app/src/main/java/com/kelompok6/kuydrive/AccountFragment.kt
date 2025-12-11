@@ -20,13 +20,10 @@ class AccountFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Tombol Logout
         view.findViewById<MaterialButton>(R.id.btnLogout)?.setOnClickListener {
 
-            // Langsung pindah ke halaman Login
             val intent = Intent(activity, LoginActivity::class.java)
 
-            // membersihkan tumpukan activity agar user tidak bisa tekan tombol 'Back'
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
 
             startActivity(intent)
