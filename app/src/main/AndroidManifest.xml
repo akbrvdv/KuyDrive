@@ -12,18 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KuyDrive">
         <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".WelcomeActivity"
+            android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
+
+        <activity
+            android:name=".WelcomeActivity"
+            android:exported="false" />
 
         <activity
             android:name=".LoginActivity"
@@ -38,25 +37,6 @@
         <activity android:name=".HistoryActivity" android:exported="false" />
         <activity android:name=".OrderMapActivity" android:exported="false" tools:ignore="Instantiatable" />
         <activity android:name=".PaymentMethodActivity" android:exported="false" />
-
-=======
-        <activity
-            android:name=".RegisterActivity"
-            android:exported="false" />
-        <activity
-            android:name=".AccountActivity"
-            android:exported="false" />
-        <activity
-            android:name=".HistoryActivity"
-            android:exported="false" />
-        <activity
-            android:name=".OrderMapActivity"
-            android:exported="false"
-            tools:ignore="Instantiatable" />
-        <activity
-            android:name=".PaymentMethodActivity"
-            android:exported="false" />
->>>>>>> 2f767235226b0013503cb2e4fbb9ec60588f2518
     </application>
 
 </manifest>
