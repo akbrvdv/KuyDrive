@@ -47,19 +47,15 @@ class OrderMapActivity : AppCompatActivity() {
         etSearchLocation = findViewById(R.id.etSearchLocation)
         searchContainer = findViewById(R.id.searchContainer)
 
-        // Tombol Back
         findViewById<View>(R.id.toolbarOrderMap).setOnClickListener { finish() }
 
-        // Logic Pencarian Lokasi (DUMMY / PURA-PURA)
         etSearchLocation.setOnEditorActionListener { v, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                 val query = v.text.toString()
                 if (query.isNotEmpty()) {
-                    // set teks tanpa cari koordinat
                     tvDestination.text = query
                     etSearchLocation.setText(query)
 
-                    // Sembunyikan keyboard
                     val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
                     imm.hideSoftInputFromWindow(v.windowToken, 0)
                 }
@@ -67,22 +63,17 @@ class OrderMapActivity : AppCompatActivity() {
             } else false
         }
 
-        // Logic Tombol Utama
         btnAction.setOnClickListener {
             when (currentState) {
-                0 -> startBooking() // Klik "Pesan Sekarang"
-                1 -> cancelOrder()  // Klik "Batalkan"
-                2 -> finishTrip()   // Klik "Sampai Tujuan"
+                0 -> startBooking()
+                1 -> cancelOrder()
+                2 -> finishTrip()
             }
         }
     }
-
-    // --- LOGIKA SIMULASI ORDER ---
-
     private fun startBooking() {
         currentState = 1
 
-        // Ubah UI ke mode "Mencari Driver"
         ivCenterMarker.visibility = View.GONE
         searchContainer.visibility = View.GONE
         cardStatus.visibility = View.VISIBLE
@@ -94,12 +85,10 @@ class OrderMapActivity : AppCompatActivity() {
         btnAction.setBackgroundColor(Color.LTGRAY)
         btnAction.setTextColor(Color.WHITE)
 
-        // Simulasi delay 3 detik sebelum driver ketemu
         Handler(Looper.getMainLooper()).postDelayed({ driverFound() }, 3000)
     }
 
     private fun driverFound() {
-        // jika user sudah membatalkan order saat loading, jangan jalankan
         if (currentState != 1) return
 
         currentState = 2
@@ -127,7 +116,6 @@ class OrderMapActivity : AppCompatActivity() {
     }
 
     private fun showRatingDialog() {
-        // Inflate layout dialog custom
         val dialogView = layoutInflater.inflate(R.layout.dialog_rating, null)
         val btnSubmit = dialogView.findViewById<Button>(R.id.btnSubmitRating)
         val ivDialogLogo = dialogView.findViewById<ImageView>(R.id.ivDialogLogo)
@@ -141,9 +129,7 @@ class OrderMapActivity : AppCompatActivity() {
 
         btnSubmit.setOnClickListener {
             dialog.dismiss()
-            // kembali ke Main Activity dan hapus history
             val intent = Intent(this, MainActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
         }
         dialog.show()
